@@ -1,43 +1,50 @@
 <!doctype html>
-<html ng-app='taco'>
+<html ng-app='shopular'>
   <head>
-  	<title>Hello World</title>
+  	<title>Shopular</title>
   	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/main.css">
   </head>
-  <body ng-controller='HeaderController as vm'>
+  <body>
 
-    <header>
-    		
-      		<h1>{{vm.user.firstName}} {{vm.user.lastName}}</h1>
+  <section class="container">    	
+      <h1>Shopular</h1>
 
-      		<button ng-click="vm.clickMe()">Click Me</button>
-
-      		<h2 ng-hide="vm.showMe">Hello</h2>
-
-			<table class="table" ng-class="vm.table">
+			<table ng-controller='TableController as vm' class="table table-responsive" ng-class="vm.table">
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Count</th>
-						<th>ID</th>
+						<th>Price</th>
+						<th>Quantity</th>
+            <th>Color</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in vm.items">
+					<tr ng-repeat="item in vm.data | orderBy:'-quantity'">
 						<td>{{item.name}}</td>
-						<td>{{item.count}}</td>
-						<td>{{item.id}}</td>
+						<td>
+              {{ vm.getPrice(item) | currency}}
+              <img ng-show="item.discount>0" src="https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png" alt="discount icon">
+            </td>
+						<td>
+              <button ng-click="vm.changeQuantity(item,true)">+</button>
+              {{item.quantity}}
+              <button ng-click="vm.changeQuantity(item,false)">-</button>
+            </td>
+            <td>
+              <div class="color" style="background-color:{{item.color}}"></div> 
+              {{item.color}}
+            </td>
 					</tr>
 				</tbody>
 			</table>
-
-
-    </header>
-
-
+</section>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src='js/main.js'></script>
   </body>
