@@ -12,6 +12,10 @@
   <section ng-controller='TableController as vm' class="container">    	
       <h1>Shopular</h1>
 
+      <h2>{{vm.weather.name}} <span class="pull-right">{{vm.weather.main.temp}}&deg;</span></h2>
+
+      <h2>{{vm.joke}}</h2>
+
 			<table class="animated fadeInDown table table-striped table-responsive" ng-class="vm.table">
 				<thead>
 					<tr class="header_tr">
@@ -56,12 +60,19 @@
       <button class="btn btn-primary" type="submit">Go</button>
       </form>
 </section>
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
     <script src='js/main.js'></script>
+
+    <script src='js/services/API.js'></script>
+    <script src='js/controllers/TableController.js'></script>
   </body>
 </html>

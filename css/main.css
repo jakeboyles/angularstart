@@ -21,10 +21,9 @@ h2 {
 .btn {
   padding: 10px 50px; }
 
-input {
-  margin-bottom: 30px; }
-  input.ng-invalid {
-    box-shadow: 0px 0px 10px rgba(239, 21, 21, 0.4); }
-
 form {
   margin-bottom: 50px; }
+  form input {
+    margin-bottom: 30px; }
+    form input.ng-invalid {
+      box-shadow: 0px 0px 10px rgba(239, 21, 21, 0.4); }
