@@ -9,3 +9,40 @@ h1 {
 	text-align:center;
 	margin-bottom:20px;
 }
+
+table {
+	tr {
+		&:hover {
+			
+		}
+	}
+}
+
+h2 {
+	padding:10px;
+	margin-bottom:30px;
+}
+
+.header_tr, h2 {
+	background-color:pink !important;
+	transform:scale(1.05) skew(3deg);
+	box-shadow:10px 10px 10px rgba(0,0,0,.2);
+	color:#fff;
+	text-shadow:2px 2px rgba(0,0,0,.1);
+}
+
+
+.btn {
+	padding:10px 50px;
+}
+input {
+	margin-bottom:30px;
+
+	&.ng-invalid {
+		box-shadow:0px 0px 10px rgba(239,21,21,.4);
+	}
+}
+
+form {
+	margin-bottom:50px;
+}

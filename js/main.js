@@ -35,5 +35,18 @@
 			vm.getPrice = function(item){
 				return ((item.price-item.discount) * vm.tax)*item.quantity
 			}
+
+			vm.submitForm = function(valid){
+				if(valid)
+				{
+					const newItem = Object.assign({},vm.item);
+					vm.data.push(newItem);
+					vm.item = {};
+				}
+				else
+				{
+					alert("Invalid Form")
+				}
+			}
         });
 })();
