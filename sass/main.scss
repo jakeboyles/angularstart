@@ -4,7 +4,6 @@
 	box-shadow:0px 0px 10px rgba(0,0,0,.2);
 }
 
-
 h1 {
 	text-align:center;
 	margin-bottom:20px;
@@ -35,14 +34,16 @@ h2 {
 .btn {
 	padding:10px 50px;
 }
-input {
-	margin-bottom:30px;
 
-	&.ng-invalid {
-		box-shadow:0px 0px 10px rgba(239,21,21,.4);
-	}
-}
 
 form {
 	margin-bottom:50px;
+
+	input {
+		margin-bottom:30px;
+
+		&.ng-invalid {
+			box-shadow:0px 0px 10px rgba(239,21,21,.4);
+		}
+	}
 }
