@@ -31,8 +31,10 @@
 			vm.changeQuantity = function(item,add){
 				if(add) {
 					item.quantity++;
+                    API.update(item,'add');
 				} else {
 					item.quantity--;
+                    API.update(item,'subtract');
 				}
 			}
 
@@ -42,9 +44,12 @@
 
 			vm.submitForm = function(valid){
 				if(valid){
+
 					const newItem = Object.assign({},vm.item);
-					vm.data.push(newItem);
-					vm.item = {};
+                    newItem.id = Date.now();
+                    vm.items = API.saveData(newItem);
+
+
 				} else {
 					alert("INVALID FORM");
 				}

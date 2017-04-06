@@ -19,6 +19,7 @@
 			<table class="animated fadeInDown table table-striped table-responsive" ng-class="vm.table">
 				<thead>
 					<tr class="header_tr">
+          <th>Id</th>
 						<th>Name</th>
 						<th>Price</th>
 						<th>Quantity</th>
@@ -26,7 +27,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in vm.data | orderBy:'quantity'">
+					<tr ng-repeat="item in vm.data track by $index">
+          <td>{{item.id}}</td>
 						<td>{{item.name}}</td>
 						<td>
               {{ vm.getPrice(item) | currency}}
